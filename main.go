@@ -129,6 +129,7 @@ func writeJSON(w http.ResponseWriter, v any) {
 
 func main() {
 	http.HandleFunc("/api/expr", exprHandler)
+    http.Handle("/", http.FileServer(http.Dir("public")))
 
     const PORT = ":8000"
 	log.Infof("listening on %s", PORT)
